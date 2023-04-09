@@ -1,0 +1,44 @@
+plugins {
+    id 'groovy'
+    id 'java-library'
+    id 'java-gradle-plugin'
+    id 'maven-publish'
+}
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+}
+
+dependencies {
+    implementation gradleApi()
+
+    implementation 'com.tngtech.archunit:archunit-junit5-engine:1.0.0-rc1'
+    implementation 'com.tngtech.archunit:archunit-junit5-api:1.0.0-rc1'
+    implementation 'com.tngtech.archunit:archunit-junit5:1.0.0-rc1'
+
+    implementation 'org.projectlombok:lombok:1.18.26'
+    annotationProcessor 'org.projectlombok:lombok:1.18.26'
+
+}
+
+gradlePlugin {
+    plugins {
+        greeting {
+            id = 'com.iz.aunit'
+            implementationClass = 'com.iz.IzArchUnitPlugin'
+        }
+    }
+}
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            groupId = 'com.iz.aunit'
+            artifactId = 'library'
+            version = '1.0.0-SNAPSHOT'
+
+            from components.java
+        }
+    }
+}
