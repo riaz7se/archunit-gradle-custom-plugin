@@ -1,0 +1,2 @@
+class IzProject(val name: String, val classpath: String, val groupId: String) {
+}
