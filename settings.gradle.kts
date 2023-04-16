@@ -1,3 +1,3 @@
 
-rootProject.name = "iz-archunit"
+rootProject.name = "iz-arunit"
 
