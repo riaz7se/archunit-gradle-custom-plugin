@@ -1,4 +1,4 @@
-# archunit-gradle-custom-plugin
+# iz-archunit-gradle-plugin
 ArchUnit Test in Gradle Custom Plugin
 <br/>
 This repository contains gradle custom plugin that has ArchUnit test.
