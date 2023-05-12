@@ -3,6 +3,7 @@ plugins {
     id 'java-library'
     id 'java-gradle-plugin'
     id 'maven-publish'
+    id 'org.jebrains.kotlin.jvm' version '1.8.10'
 }
 
 repositories {
@@ -10,23 +11,26 @@ repositories {
     mavenCentral()
 }
 
+configurations {
+    requiredLibs
+}
+
 dependencies {
     implementation gradleApi()
 
-    implementation 'com.tngtech.archunit:archunit-junit5-engine:1.0.0-rc1'
-    implementation 'com.tngtech.archunit:archunit-junit5-api:1.0.0-rc1'
-    implementation 'com.tngtech.archunit:archunit-junit5:1.0.0-rc1'
+    requiredLibs 'org.jetbrains.kotlin:kotlin-stdlib'
 
-    implementation 'org.projectlombok:lombok:1.18.26'
-    annotationProcessor 'org.projectlombok:lombok:1.18.26'
+    requiredLibs 'com.tngtech.archunit:archunit-junit5-engine:1.0.0-rc1'
+    requiredLibs 'com.tngtech.archunit:archunit-junit5-api:1.0.0-rc1'
+    requiredLibs 'com.tngtech.archunit:archunit-junit5:1.0.0-rc1'
 
 }
 
 gradlePlugin {
     plugins {
         greeting {
-            id = 'com.iz.aunit'
-            implementationClass = 'com.iz.IzArchUnitPlugin'
+            id = 'com.iz.arunit'
+            implementationClass = 'com.iz.arunit.IzArchUnitPlugin'
         }
     }
 }
@@ -34,8 +38,8 @@ gradlePlugin {
 publishing {
     publications {
         maven(MavenPublication) {
-            groupId = 'com.iz.aunit'
-            artifactId = 'library'
+            groupId = 'com.iz.arunit'
+            artifactId = 'iz-arunit'
             version = '1.0.0-SNAPSHOT'
 
             from components.java
