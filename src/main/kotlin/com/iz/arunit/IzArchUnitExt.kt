@@ -5,6 +5,6 @@ import org.gradle.api.Project
 open class IzArchUnitExt(var project: Project) {
     var isEnable = true
     var classPath: String? = null
-    var modulesHiearchyList: Set<String>? = mutableSetOf()
-    var excludeModulesList: Set<String>? = mutableSetOf()
+    var modulesHiearchySet: Set<String>? = mutableSetOf()
+    var excludeModulesSet: Set<String>? = mutableSetOf()
 }
