@@ -34,24 +34,7 @@ izArchUnitTest {
 }
 
 ####
-
-configurations {
-    // configuration that holds jars to include in the jar
-    extraLibs
-}
-
-dependencies {
-    compile 'org.codehaus.groovy:groovy-all:2.4.7'
-    extraLibs group: 'net.java.dev.jna', name: 'jna-platform', version: '4.2.2'
-    testCompile group: 'junit', name: 'junit', version: '+'
-    configurations.compile.extendsFrom(configurations.extraLibs)
-}
-
-jar {
-    from {
-            configurations.extraLibs.collect { it.isDirectory() ? it : zipTree(it) }
-        }
-}
+```
 
 
 
