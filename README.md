@@ -26,9 +26,11 @@ apply plugin: 'com.iz.aunit'
 ```
 
 ```gradle
-archUnitTest {
-	enable = true // flag to disable archunit test
-	classesPath = sourceSets.main.output[0] //project classes path to test
+izArchUnitTest {
+    enable = true
+    classesPath = sourceSets.main.output[0]
+    modulesHiearchySet = ['myapp-common', 'myapp-webservices', 'myapp-account', 'myapp-customer', 'myapp-report']
+    excludeModulesSet = ['bdd', 'myapp-config']
 }
 
 ####
